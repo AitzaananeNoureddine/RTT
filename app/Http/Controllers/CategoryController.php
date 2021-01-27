@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\category;
+use App\Models\Category;
 
 class CategoryController extends Controller
 {
     public function index(){
-        $var=Category::all();
-        return view('home')->with('variable',$var);
+        return view('categories');
+    }
+
+    public function fetch(){
+        // return $_GET['cat_name'];
+        return view('articles')->with("cat_name",$_GET['cat_name']);
     }
 }

@@ -16,7 +16,7 @@
         <img src="assets/images/Logo.png">
         <div class="links">
             <a href="/">Home</a>
-            <a href="#" class="categories_link">Categories</a>
+            <a href="/categories" class="categories_link">Categories</a>
             <a href="/top10">Top 10</a>
             <a href="/about">About</a>
         </div>
