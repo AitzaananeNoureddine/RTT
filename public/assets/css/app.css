@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0%;
 }
@@ -99,8 +103,7 @@ body {
     position: absolute;
     top: 0px;
     width: 100%;
-    height: 100rem;
-    overflow: hidden;
+    overflow: scroll;
     left: 0px;
     right: 0px;
     padding: 13%;
@@ -115,7 +118,8 @@ body {
 
 .content>h1 {
     font-weight: 800;
-    color: #FDEDEF;
+    width: fit-content !important;
+    color: #f7cad0;
     font-family: 'Acme', sans-serif;
     font-size: 70px;
 }
@@ -322,3 +326,118 @@ footer {
 
 
 /* about page */
+
+
+/* Top 10 page */
+
+#section1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.winner {
+    padding-top: 7%;
+    font-family: 'Coda Caption', sans-serif;
+}
+
+.winner>h2 {
+    color: #6200b3;
+    font-size: 600%;
+}
+
+.winner>h2,
+.winner>h3 {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3.5s;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+    to {
+        width: 100%
+    }
+}
+
+.arrowDown {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    filter: brightness(10%);
+}
+
+.arrowDown:hover {
+    cursor: pointer;
+    filter: brightness(60%);
+}
+
+.arrowUP {
+    float: right;
+}
+
+.arrowUP:hover {
+    transform: scale(1.2) !important;
+}
+
+.ic_medal {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    margin-bottom: 20px;
+}
+
+#section2 {
+    position: relative;
+}
+
+.user {
+    border: solid 0.9px #9b59b6;
+    background-color: #edf2f4;
+    border-radius: 50px;
+    width: 40%;
+    overflow: hidden;
+    margin: 10px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    text-align: center;
+}
+
+.user:hover {
+    background-color: transparent;
+    transition: 1s;
+}
+
+@media only screen and (max-width: 1218px) {
+    #section1 {
+        display: block;
+        text-align: center;
+    }
+    .winner>h2 {
+        font-size: 300%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #section1>img {
+        display: none;
+    }
+    .user {
+        border: none;
+        background: transparent;
+        overflow: visible;
+        text-align: center;
+        width: auto;
+    }
+    .content {
+        padding-top: 320px !important;
+    }
+    .winner>h2 {
+        overflow: scroll;
+    }
+}
+
+
+/* Top 10 page */

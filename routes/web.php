@@ -13,14 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', function () { return view('home'); });
 
-Route::get('about',function(){
-    return view('about');
-});
+Route::get('about',function(){ return view('about'); });
 
-Route::get('top10',function(){
-    return 'top10 page';
-});
+Route::get('top10','App\Http\Controllers\ScoreController@index');
