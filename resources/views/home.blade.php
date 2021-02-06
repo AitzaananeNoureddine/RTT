@@ -10,5 +10,6 @@
         <div class="right" data-aos="fade-left">
             <img src="assets/images/slider-icon.png">
         </div>
+       
     </div>
 @endsection
