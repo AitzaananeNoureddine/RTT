@@ -60,11 +60,11 @@ margin-left:-25px;
         <div class="links" >
           <a href="/">Home</a>
             <div class="links" id="cat">
-                <a href="/categories" class="categories_link" >Categories</a>
+                <a href="#" class="categories_link" >Categories</a>
             <div class="sub-menu">
                    <ul>
                        @foreach ($categories as $item)
-                           <li><a href="#">{!! $item->Name !!}</a></li>
+                           <li><a href="categories/{{$item->Id}}">{!! $item->Name !!}</a></li>
                        @endforeach
                    </ul>
                </div>

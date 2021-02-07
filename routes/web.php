@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,7 +22,7 @@ Route::get('about',function(){ return view('about'); });
 
 Route::get('top10','App\Http\Controllers\ScoreController@index');
 
-Route::get('categories','App\Http\Controllers\CategoryController@index');
+Route::get('categories/{id}','App\Http\Controllers\CategoryController@index')->name('categories');
 
 Route::get('fetchArticles','App\Http\Controllers\CategoryController@fetch');
 Route::get('randomTest','App\Http\Controllers\ArticleController@random');
