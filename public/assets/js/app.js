@@ -1,30 +1,30 @@
-/////////// categories hover effect ///////////////
-let categories = document.querySelectorAll('.category');
-categories.forEach(function(category) {
+/////////// articles hover effect ///////////////
+let articles = document.querySelectorAll('.article');
+articles.forEach(function(article) {
 
-    category.addEventListener('mouseover', function() {
-        category.style = "cursor :pointer;"
-        category.children[1].style = "display :block";
-        category.children[0].style = "filter :brightness(10%); transition :2s";
+    article.addEventListener('mouseover', function() {
+        article.style = "cursor :pointer;"
+        article.children[1].style = "display :block";
+        article.children[0].style = "filter :brightness(10%); transition :2s";
     });
-    category.addEventListener('mouseout', function() {
-        category.children[1].style = "display :none";
-        category.children[0].style = "filter :brightness(100%); transition :1s";
+    article.addEventListener('mouseout', function() {
+        article.children[1].style = "display :none";
+        article.children[0].style = "filter :brightness(100%); transition :1s";
     });
-    category.addEventListener('click', function() {
-        document.getElementById('cat_name').value = category.children[1].textContent;
+    article.addEventListener('click', function() {
+        document.getElementById('article_name').value = article.children[1].textContent;
         document.getElementById('fetchArticlesForm').submit();
     });
 
 });
-/////////// categories hover effect ///////////////
+/////////// articles hover effect ///////////////
 
 /////////// evaluation process ////////////////
 var started = false;
 var time = 0;
 var timer;
 var i = 0;
-var _random_words = document.getElementById('randomTxt').textContent.split(' ');
+if (document.getElementById('randomTxt') != null) var _random_words = document.getElementById('randomTxt').textContent.split(' ');
 var score = 0;
 var random_words;
 

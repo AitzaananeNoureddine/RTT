@@ -1,11 +1,16 @@
 @extends('partial/master')
 @section('content')
-<div class="content" style="text-align: center;background-color: #CFC9C9">
-    <h3 style="color: #5C5C5C">{{$cat_name}}</h3><br>
-    <div class="grid">
-        @for ($i = 0; $i < 30; $i++)
-            <button class="article">art{{$i}}</button>
-        @endfor
-    </div>
-</div>
+    <div class="content" style="background-color: #CFC9C9;padding-left: 0%;padding-right: 0%;">
+        <div class="grid">
+            @foreach ($articles as $item)
+                <div class="article">
+                    <img src="/assets/images/tttabout_img.jpg" width="100%" height="100%" id="bg_image">
+                    <h4 id="article_name">{{$item->Title}}</h4>
+                </div>
+            @endforeach
+        </div>
+        <form action="{{ url('fetchArticles') }}" method="GET" id="fetchArticlesForm">
+            <input type="hidden" id="cat_name" name="cat_name">
+        </form>
+    </div>    
 @endsection

@@ -12,6 +12,7 @@ body {
 .navbar {
     position: fixed !important;
     z-index: 1;
+    top: 0px;
     left: 0px;
     right: 0px;
     border-bottom-left-radius: 30px;
@@ -24,20 +25,21 @@ body {
 }
 
 .navbar>img {
-    width: 110px;
-    height: 126px;
+    width: 90px;
+    height: 106px;
 }
 
 .links {
-    width: 30%;
-    margin-top: 1%;
+    width: 42%;
+    margin-top: 0.7%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.links>a {
-    margin: 10px;
+.links>a,
+.categories_link {
+    margin: 20px;
     text-decoration: none;
     color: white;
     font-weight: 600;
@@ -45,22 +47,30 @@ body {
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.links>a:hover {
+.links>a:hover,
+.categories_link:hover {
     color: #F5C800 !important;
     transition: 0.9s;
-}
-
-.categories_link {
-    color: #2D2825 !important;
 }
 
 @media only screen and (max-width:570px) {
     .navbar {
         min-height: 150px;
-        left: 0px;
-        right: 0px;
+        position: absolute !important;
+        left: 0px !important;
+        width: 100% !important;
+        right: 10px !important;
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
+    }
+    .content {
+        padding-bottom: 30% !important;
+    }
+    .content>.right {
+        display: none !important;
+    }
+    .content>.left {
+        padding-bottom: 30%;
     }
     .navbar>img {
         position: absolute !important;
@@ -88,6 +98,68 @@ body {
     }
 }
 
+.categories_link {
+    color: #2D2825 !important;
+}
+
+
+/* navbar submenu */
+
+#cat {
+    color: white;
+}
+
+.sub-menu {
+    display: none;
+}
+
+#cat:hover .sub-menu {
+    display: block;
+    position: absolute;
+    width: min-content;
+    background-color: #666;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+#cat:hover .sub-menu ul {
+    display: block;
+    list-style: none;
+    padding: 0%;
+}
+
+#cat:hover .sub-menu ul li {
+    width: 100%;
+    padding: 15px;
+    border-bottom: solid 1px white;
+    text-align: center;
+    background: transparent;
+    font-family: sans-serif;
+}
+
+#cat:hover .sub-menu ul li:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#cat:hover .sub-menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+#cat:hover .sub-menu ul li:hover {
+    background-color: #999999;
+}
+
+#cat:hover .sub-menu ul li a:hover {
+    color: #F5C800;
+}
+
+
+/* navbar submenu */
+
 
 /* navbar  */
 
@@ -102,8 +174,10 @@ body {
 .content {
     position: absolute;
     top: 0px;
-    width: 100%;
-    overflow: scroll;
+    width: 100% !important;
+    height: max-content;
+    min-height: 100%;
+    overflow: visible;
     left: 0px;
     right: 0px;
     padding: 13%;
@@ -148,6 +222,11 @@ body {
     padding-right: 0px !important;
 }
 
+.right>img {
+    margin-right: -60px;
+    margin-top: -60px;
+}
+
 
 /* content  */
 
@@ -156,12 +235,12 @@ body {
 
 footer {
     position: fixed;
-    background-color: #D6D6D6;
+    background-color: #B8B8B8;
     display: flex !important;
     flex-wrap: wrap;
     justify-content: space-around;
     width: 100%;
-    height: 50px;
+    height: fit-content;
     bottom: 0px;
     left: 0px;
     right: 0px;
@@ -170,6 +249,7 @@ footer {
 .footer_right>img {
     width: 40px;
     height: 40px;
+    filter: brightness(90%);
 }
 
 .footer_right>img:hover {
@@ -375,6 +455,8 @@ footer {
 
 .arrowUP {
     float: right;
+    margin-top: -5%;
+    margin-right: 5%;
 }
 
 .arrowUP:hover {
@@ -443,7 +525,7 @@ footer {
 /* Top 10 page */
 
 
-/* Categories page */
+/* articles page */
 
 .grid {
     display: grid;
@@ -451,16 +533,16 @@ footer {
     gap: 10px;
 }
 
-.category {
+.article {
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
-.category>img {
+.article>img {
     border-radius: 5px;
 }
 
-.category>h4 {
+.article>h4 {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -471,38 +553,19 @@ footer {
 }
 
 @media only screen and (max-width: 500px) {
-    .category>h4 {
+    .article>h4 {
         font-size: small;
     }
 }
 
 @media only screen and (hover:none) {
-    .category>img {
+    .article>img {
         filter: brightness(40%);
     }
-    .category>h4 {
+    .article>h4 {
         color: #dd0426;
         display: block;
     }
-}
-
-
-/* Categories page */
-
-
-/* articles page */
-
-.article {
-    border: solid #939599 1px;
-    border-radius: 5px;
-    height: 40px;
-    background-color: transparent;
-}
-
-.article:hover {
-    background-color: #fbfefb;
-    border: none;
-    transition: 0.5s;
 }
 
 

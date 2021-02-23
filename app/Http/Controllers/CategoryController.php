@@ -10,8 +10,8 @@ class CategoryController extends Controller
 {
     public function index($id){
 
-    $articles=Article::where('Category','=',$id)->get();
-    return view('categories',['articles'=>$articles]);
+        $articles=Article::where('Category','=',$id)->get();
+        return view('articles')->with('articles',$articles);
     }
 
    public function fetch(){

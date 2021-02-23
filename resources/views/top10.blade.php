@@ -20,6 +20,6 @@
                 </div>
             @endfor
         </div>
-        <a href="#section1"><img src="assets/images/ic_scroll_up.png" width="50px" height="50px" class="arrowUP" data-aos="flip-left" data-aos-duration="2000"></a>
+        <a href="#section1"><img src="assets/images/ic_scroll_up.png" width="40px" height="40px" class="arrowUP" data-aos="flip-left" data-aos-duration="2000"></a>
     </div>
 @endsection

@@ -25,4 +25,5 @@ Route::get('top10','App\Http\Controllers\ScoreController@index');
 Route::get('categories/{id}','App\Http\Controllers\CategoryController@index')->name('categories');
 
 Route::get('fetchArticles','App\Http\Controllers\CategoryController@fetch');
+
 Route::get('randomTest','App\Http\Controllers\ArticleController@random');
