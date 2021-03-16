@@ -20,8 +20,28 @@ body {
     background-color: #5C5C5C;
     opacity: 0.97;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around !important;
     flex-wrap: wrap;
+}
+
+.navbar>h3>a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar>h3>a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar>h3 {
+    font-size: larger;
+    /* font-family: 'Redressed', cursive; */
+    font-family: 'Pacifico', cursive;
+}
+
+.cap {
+    color: #660708;
 }
 
 .navbar>img {
@@ -31,7 +51,6 @@ body {
 
 .links {
     width: 42%;
-    margin-top: 0.7%;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -41,10 +60,10 @@ body {
 .categories_link {
     margin: 20px;
     text-decoration: none;
-    color: white;
+    color: white !important;
     font-weight: 600;
-    font-size: medium;
-    font-family: 'Josefin Sans', sans-serif;
+    font-size: small;
+    font-family: 'Coda Caption', sans-serif;
 }
 
 .links>a:hover,
@@ -55,7 +74,6 @@ body {
 
 @media only screen and (max-width:570px) {
     .navbar {
-        min-height: 150px;
         position: absolute !important;
         left: 0px !important;
         width: 100% !important;
@@ -96,10 +114,6 @@ body {
         background-color: #5C5C5C;
         border-radius: 10px;
     }
-}
-
-.categories_link {
-    color: #2D2825 !important;
 }
 
 
@@ -198,9 +212,11 @@ body {
     font-size: 70px;
 }
 
-.left>h5 {
+.left>h5,
+.left>h4 {
     color: white;
     font-family: 'Josefin Sans', sans-serif;
+    font-size: large;
 }
 
 .left>button {
@@ -253,11 +269,13 @@ footer {
 }
 
 .footer_right>img:hover {
+    cursor: pointer;
     filter: brightness(50%);
 }
 
 .footer_left>h6 {
     padding-top: 7%;
+    font-family: 'Coda Caption', sans-serif;
 }
 
 .footer_right {
@@ -308,7 +326,7 @@ footer {
 }
 
 .about_container>p:hover {
-    color: #161412;
+    color: #290628;
     transition: 2s;
 }
 
@@ -346,7 +364,7 @@ footer {
     margin-top: 80px;
     height: 30px;
     border-style: solid;
-    border-color: #A95237;
+    border-color: #290628;
     border-width: 1px 0 0 0;
     border-radius: 20px;
 }
@@ -357,12 +375,12 @@ footer {
     height: 30px;
     margin-top: -31px;
     border-style: solid;
-    border-color: #A95237;
+    border-color: #290628;
     border-width: 0 0 1px 0;
     border-radius: 20px;
 }
 
-@media only screen and (max-width: 1430px) {
+@media only screen and (max-width: 1490px) {
     .about_container>img {
         display: none;
     }
@@ -418,6 +436,7 @@ footer {
 .winner {
     padding-top: 7%;
     font-family: 'Coda Caption', sans-serif;
+    text-align: center;
 }
 
 .winner>h2 {
@@ -478,9 +497,9 @@ footer {
     border: solid 0.9px #9b59b6;
     background-color: #edf2f4;
     border-radius: 50px;
-    width: 40%;
+    width: 36%;
     overflow: hidden;
-    margin: 10px;
+    margin: 20px;
     position: relative;
     left: 50%;
     transform: translateX(-50%) !important;
@@ -548,7 +567,7 @@ footer {
     left: 50%;
     font-size: x-large;
     transform: translate(-50%, -50%);
-    color: white;
+    color: #ea7af4;
     display: none;
 }
 

@@ -5,7 +5,7 @@ articles.forEach(function(article) {
     article.addEventListener('mouseover', function() {
         article.style = "cursor :pointer;"
         article.children[1].style = "display :block";
-        article.children[0].style = "filter :brightness(10%); transition :2s";
+        article.children[0].style = "filter :brightness(10%); transition :1.5s";
     });
     article.addEventListener('mouseout', function() {
         article.children[1].style = "display :none";

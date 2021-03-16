@@ -4,8 +4,8 @@
         <div id="section1">
             <img src="assets/images/winner_pic.png" width="43%" height="39%" data-aos="fade-right" data-aos-duration="2500">
             <div class="winner">
-                <h2>Jack <br> Reacher</h2>
-                <h3>with <strong style="color: #CC004E">120</strong> wpm</h3>
+                <h2>{{$scores[0]->Username}}</h2><br>
+                <h3>with <strong style="color: #CC004E">{{$scores[0]->Value}}</strong> wpm</h3>
             </div>
         </div><br>
         <a href="#section2"><img src="assets/images/ic_arrow_down.png" width="40px" height="40px" class="arrowDown" data-aos="flip-left" data-aos-duration="1500"></a>
@@ -13,10 +13,10 @@
         <hr class="styled_hr">
         <div id="section2">
             <img src="assets/images/ic_medal.png" class="ic_medal">
-            @for ($i = 0; $i < 9; $i++)
+            @for ($i = 1; $i < 10; $i++)
                 <div class="user">
-                    <h3 style="color: #ee3e54">username</h3>
-                    <h5 style="color: #e0a825">100 wpm</h5>
+                    <h3 style="color: #ee3e54">{{$scores[$i]->Username}}</h3>
+                    <h5 style="color: #e0a825">{{$scores[$i]->Value}} wpm</h5>
                 </div>
             @endfor
         </div>

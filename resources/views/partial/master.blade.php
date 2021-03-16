@@ -9,12 +9,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"> 
    
     <title>Read through typing</title>
 </head>
 <body>
     <div class="navbar">
-        <img src="/assets/images/Logo.png">
+        {{-- <img src="/assets/images/Logo.png"> --}}
+        <h3><a href="/"><strong class="cap">R</strong>ead<strong class="cap">T</strong>hrough<strong class="cap">T</strong>yping</a></h3>
         <div class="links">
             <a href="/">Home</a>
             <div id="cat" style="margin: 0%;width: fit-content;display: flex;justify-content: space-between;flex-wrap: wrap;">
@@ -38,7 +41,7 @@
     @yield('content')
     <footer>
         <div class="footer_left">
-            <h6>Copyright &copy; {{date('Y')}} - <small><strong style="color: #660708">Read Through Typing</strong></small> -</h6>
+            <h6><small>Copyright &copy; {{date('Y')}} - <small><strong style="color: #660708">Read Through Typing</strong></small></small> -</h6>
         </div>
         <div class="footer_right">
             <img src="/assets/images/ic_fb.png">
