@@ -6,11 +6,13 @@
                 <div class="article">
                     <img src="/assets/images/tttabout_img.jpg" width="100%" height="100%" id="bg_image">
                     <h4 id="article_name">{{$item->Title}}</h4>
+                    <p style="display: none">{{ $item->Id }}</p>
                 </div>
             @endforeach
+            <form action="{{ route('fetchArticle') }}" method="POST" id="fetchArticleForm">
+                @csrf
+                <input type="hidden" id="article_id" name="article_id">
+            </form>
         </div>
-        <form action="{{ url('fetchArticles') }}" method="GET" id="fetchArticlesForm">
-            <input type="hidden" id="cat_name" name="cat_name">
-        </form>
     </div>    
 @endsection

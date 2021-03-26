@@ -12,8 +12,9 @@ articles.forEach(function(article) {
         article.children[0].style = "filter :brightness(100%); transition :1s";
     });
     article.addEventListener('click', function() {
-        document.getElementById('article_name').value = article.children[1].textContent;
-        document.getElementById('fetchArticlesForm').submit();
+        document.getElementById('article_id').value = article.children[2].textContent;
+        console.log(document.getElementById('article_id').value);
+        document.getElementById('fetchArticleForm').submit();
     });
 
 });
@@ -24,47 +25,77 @@ var started = false;
 var time = 0;
 var timer;
 var i = 0;
-if (document.getElementById('randomTxt') != null) var _random_words = document.getElementById('randomTxt').textContent.split(' ');
+if (document.getElementById('randomTxt') != null) {
+    var _random_words = document.getElementById('randomTxt').textContent.trim();
+    var _random_words = _random_words.split(' ');
+}
 var score = 0;
 var random_words;
 
 function start(event) {
+    document.getElementById("scorePanel").style = "display :none;";
     random_words = _random_words.slice();
-    if (event.keyCode == 32 && i < random_words.length) {
+    if (event.keyCode == 32 && i < random_words.length && started) {
         if (document.getElementById('typingArea').value.trim().localeCompare(random_words[i].trim()) == 0) {
             console.log(++score);
         }
         document.getElementById('typingArea').value = "";
         i++;
         if (random_words[i] != undefined) {
-            var word = " <span style='background-color: #c8e7ff;border-radius: 2px'>" + random_words[i] + "</span> ";
+            var word = " <span style='background-color: #FF859B;border-radius: 2px'>" + random_words[i] + "</span> ";
             random_words.splice(i, 1, word);
         }
         document.getElementById('randomTxt').innerHTML = random_words.join(' ');
     }
-    if (!started) {
-        time = 60;
+    if (!started && event.keyCode != 32) {
+        time = 0;
         started = true;
         timer = setInterval(startTimer, 1000);
-        var word = " <span style='background-color: #c8e7ff;border-radius: 2px'>" + random_words[0] + "</span> "; /// highlighting the first word
+        var word = " <span style='background-color: #FF859B;border-radius: 2px'>" + random_words[0] + "</span> "; /// highlighting the first word
         random_words.splice(0, 1, word);
         document.getElementById('randomTxt').innerHTML = random_words.join(' ');
+    }
+    if (!started && event.keyCode == 32) {
+        document.getElementById('typingArea').value = '';
     }
 }
 
 function startTimer() {
-    document.getElementsByClassName('timeB')[0].innerHTML = --time;
-    if (time == 0) {
+    document.getElementsByClassName('timeB')[0].innerHTML = ++time + ' (s)';
+    if (i == random_words.length) {
+        document.getElementById('randomTxt').innerHTML = _random_words.join(' ');
         clearInterval(timer);
         started = false;
         document.getElementById("scorePanel").style = "display :block;";
         document.getElementById("scorePanel").scrollIntoView();
-        document.getElementById('result').innerHTML = "Congrats !!! <br><br> You scored : " + score + " wpm";
-        resetTimer();
-        score = 0;
-        time = 0;
-        i = 0;
-        resetTimer();
+        score = Math.round(score * 60 / time);
+        ///////////////////////
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: "/verifyScore",
+            type: "POST",
+            data: { score: score },
+            success: function(data) {
+                if (data.msg == 'username') {
+                    document.getElementById('value').innerHTML = score + ' wpm';
+                    document.getElementById('hiddenScore').value = score;
+                    document.getElementById('updateValue').value = data.updateValue;
+                    console.log('updateValue : ' + document.getElementById('updateValue').value);
+                    $('#topTenForm').modal('show');
+                }
+                document.getElementById('result').innerHTML = "Congrats !!! <br><br> You scored : " + score + " wpm";
+                resetTimer();
+                score = 0;
+                time = 0;
+                i = 0;
+                if (document.activeElement != document.body) document.activeElement.blur(); //// clear focus
+            }
+        });
+        ///////////////////////
     }
 }
 
@@ -74,10 +105,12 @@ function PauseContinue() {
             clearInterval(timer);
             started = false;
             document.getElementById('typingArea').disabled = true;
+            document.getElementsByClassName('timeB')[0].style.backgroundColor = "#FF859B";
         } else {
             timer = setInterval(startTimer, 1000);
             started = true;
             document.getElementById('typingArea').disabled = false;
+            document.getElementsByClassName('timeB')[0].style.backgroundColor = "transparent";
         }
     }
 }
@@ -88,7 +121,7 @@ function resetTimer() {
     time = 0;
     score = 0;
     i = 0;
-    document.getElementsByClassName('timeB')[0].innerHTML = "60";
+    document.getElementsByClassName('timeB')[0].innerHTML = "0 (s)";
     document.getElementById('typingArea').value = "";
 }
 
@@ -97,5 +130,20 @@ function retryRandom() {
     window.scrollTo(0, 0);
     document.getElementById('randomTxt').innerHTML = _random_words.join(' ');
     resetTimer();
+}
+
+function submitForm() {
+    document.getElementById('UsernameForm');
+    var username = $('#username').val();
+    var hiddenScore = $('#hiddenScore').val();
+    var updateValue = $('#updateValue').val();
+    $.ajax({
+        url: "/updateUser",
+        type: "POST",
+        data: { username: username, hiddenScore: hiddenScore, updateValue: updateValue },
+        success: function(data) {
+            console.log(data.msg);
+        }
+    });
 }
 /////////// evaluation process ////////////////

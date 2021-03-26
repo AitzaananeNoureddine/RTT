@@ -24,6 +24,10 @@ Route::get('top10','App\Http\Controllers\ScoreController@index');
 
 Route::get('categories/{id}','App\Http\Controllers\CategoryController@index')->name('categories');
 
-Route::get('fetchArticles','App\Http\Controllers\CategoryController@fetch');
+Route::post('fetchArticle','App\Http\Controllers\ArticleController@fetchArticle')->name('fetchArticle');
 
-Route::get('randomTest','App\Http\Controllers\ArticleController@random');
+Route::get('typingTest','App\Http\Controllers\ArticleController@random')->name('typingTest');
+
+Route::post('/verifyScore','App\Http\Controllers\ScoreController@verifyScore');
+
+Route::post('/updateUser','App\Http\Controllers\ScoreController@updateUser')->name('update');

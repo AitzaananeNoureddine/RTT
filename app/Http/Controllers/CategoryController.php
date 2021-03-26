@@ -13,9 +13,4 @@ class CategoryController extends Controller
         $articles=Article::where('Category','=',$id)->get();
         return view('articles')->with('articles',$articles);
     }
-
-   public function fetch(){
-        
-        return view('articles')->with("cat_name",$_GET['cat_name']);
-    }
 }
