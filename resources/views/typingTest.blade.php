@@ -1,4 +1,6 @@
-@extends('partial/master')
+@if(!Request::ajax())
+    @extends('partial/master')
+@endif
 @section('content')
     <div class="content" style="background-color: #CFC9C9;text-align: center;padding-top: 7%">
         <h2 style="color: #230052;font-family: 'Josefin Sans', sans-serif;">{{ $article->Title == '' ? "Random typing test":$article->Title }}</h2><br>
@@ -10,6 +12,37 @@
             <img src="assets/images/score_img.png" width="20%">
             <h3 id="result">Result</h3><br><br>
             <button onclick="retryRandom()"><strong>Retry</strong></button>
+        </div>
+        <hr style="background-color: #290628;height: 1px">
+        <h5 style="position: absolute;left: 50%;transform: translateX(-50%);color: #564F38;font-family: 'Quicksand', sans-serif;font-size:x-large;">Discussion area</h5><br><br><br>
+        <div class="discussion">
+            @foreach ($posts as $post)
+            <div class="msgContainer">
+                <div id="replyNote">Click to submit reply</div>
+                <div class="post" onclick="reply({{ $post->Id }},{{ $article->Id }})">
+                    <div style="font-family: 'Caveat', cursive;">{{ $post->created_at }}</div>{{ $post->Content }}
+                </div>
+            </div>
+            @php
+                $replies = App\Models\Reply::where('Post',$post->Id)->get();
+            @endphp
+            @foreach ($replies as $reply)
+            <div class="msgContainer">
+                <div id="replyNote">Click to submit reply</div>
+                <div class="reply">
+                    <div style="font-family: 'Caveat', cursive;">{{ $reply->created_at }}</div>{{ $reply->Content }}
+                </div>
+            </div>
+            @endforeach
+            @endforeach
+        </div>
+        <br><hr style="background-color: #290628;height: 1px">
+        <div class="buttonNfield">
+            <a href="" onclick="return false" class="btnCustom button" data-front="New post"></a>
+            <div class="form">
+                <input type="text" placeholder="write a new post or reply here..." class="form-control" id="postContent">
+                <input type="submit" value="Submit" class="btn btn-light" onclick="Post({{ $article->Id }});">
+            </div>
         </div>
         {{-- username modal --}}
         <div class="modal animate__animated animate__jackInTheBox" id="topTenForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

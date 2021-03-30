@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="content" style="background-color: #CFC9C9;font-family: 'Coda Caption', sans-serif;padding-top: 10%">
-        <h3 style="color:#463F3A">About</h3>
+        <h3 style="color:#362B64">About us</h3>
         <hr style="background-color: #290628;height: 1px"><br>
         <div class="about_container">
             <img src="assets/images/about_img.jpg" data-aos="fade-right" data-aos-duration="1500">
@@ -33,7 +33,7 @@
         </div>
         <br>
         <hr class="styled_hr">
-        <h5 style="position: absolute;left: 50%;transform: translateX(-50%);color: #564F38;font-family: 'Quicksand', sans-serif;font-size:x-large;">Creators</h5>
+        <h5 style="position: absolute;left: 50%;transform: translateX(-50%);color: #1F183F;font-family: 'Quicksand', sans-serif;font-size:x-large;">Creators</h5>
         <div class="about_container cr_container" style="justify-content: space-evenly;padding-top: 50px">
             <div class="creator cr1" data-aos="fade-up" data-aos-duration="1000">
                 <img src="assets/images/creator_img1.jpg" width="40%" height="50%">

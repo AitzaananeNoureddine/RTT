@@ -1,3 +1,10 @@
+$(document).ready(function() {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+});
 /////////// articles hover effect ///////////////
 let articles = document.querySelectorAll('.article');
 articles.forEach(function(article) {
@@ -38,6 +45,7 @@ function start(event) {
     if (event.keyCode == 32 && i < random_words.length && started) {
         if (document.getElementById('typingArea').value.trim().localeCompare(random_words[i].trim()) == 0) {
             console.log(++score);
+            // score++;
         }
         document.getElementById('typingArea').value = "";
         i++;
@@ -70,11 +78,6 @@ function startTimer() {
         document.getElementById("scorePanel").scrollIntoView();
         score = Math.round(score * 60 / time);
         ///////////////////////
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
         $.ajax({
             url: "/verifyScore",
             type: "POST",
@@ -133,7 +136,6 @@ function retryRandom() {
 }
 
 function submitForm() {
-    document.getElementById('UsernameForm');
     var username = $('#username').val();
     var hiddenScore = $('#hiddenScore').val();
     var updateValue = $('#updateValue').val();
@@ -147,3 +149,37 @@ function submitForm() {
     });
 }
 /////////// evaluation process ////////////////
+
+/////////// post form slider ////////////////
+$(".buttonNfield a").click(function() {
+    $(".buttonNfield .form").toggleClass('showAddPost');
+
+});
+/////////// post form slider ////////////////
+function Post(articleId) {
+    let postContent = $("#postContent").val();
+    $("#postContent").val('');
+    $.ajax({
+        url: "/NewPost",
+        type: "POST",
+        data: { Article: articleId, Content: postContent },
+        success: function(data) {
+            $('.discussion').html(data.html);
+        }
+    });
+}
+////// post reply /////
+function reply(postId, articleId) {
+    let replyContent = $("#postContent").val();
+    if (replyContent != '') {
+        $("#postContent").val('');
+        $.ajax({
+            url: "/reply",
+            type: "POST",
+            data: { Article: articleId, Post: postId, Content: replyContent },
+            success: function(data) {
+                $('.discussion').html(data.html);
+            }
+        });
+    }
+}
