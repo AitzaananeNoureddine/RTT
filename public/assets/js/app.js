@@ -43,14 +43,22 @@ function start(event) {
     document.getElementById("scorePanel").style = "display :none;";
     random_words = _random_words.slice();
     if (event.keyCode == 32 && i < random_words.length && started) {
-        if (document.getElementById('typingArea').value.trim().localeCompare(random_words[i].trim()) == 0) {
-            console.log(++score);
-            // score++;
+        if (random_words[i].length != 0) {
+            if (document.getElementById('typingArea').value.trim().localeCompare(random_words[i].trim()) == 0) {
+                console.log(++score);
+                console.log('word : ' + random_words[i].length);
+                // score++;
+                let word = " <span style='color: #38b000;border-radius: 2px'>" + random_words[i] + "</span> ";
+                random_words.splice(i, 1, word);
+            } else {
+                let word = " <span style='color: #e5383b;border-radius: 2px'>" + random_words[i] + "</span> ";
+                random_words.splice(i, 1, word);
+            }
         }
         document.getElementById('typingArea').value = "";
         i++;
         if (random_words[i] != undefined) {
-            var word = " <span style='background-color: #FF859B;border-radius: 2px'>" + random_words[i] + "</span> ";
+            let word = " <span style='background-color: #FF859B;border-radius: 2px'>" + random_words[i] + "</span> ";
             random_words.splice(i, 1, word);
         }
         document.getElementById('randomTxt').innerHTML = random_words.join(' ');
@@ -74,8 +82,6 @@ function startTimer() {
         document.getElementById('randomTxt').innerHTML = _random_words.join(' ');
         clearInterval(timer);
         started = false;
-        document.getElementById("scorePanel").style = "display :block;";
-        document.getElementById("scorePanel").scrollIntoView();
         score = Math.round(score * 60 / time);
         ///////////////////////
         $.ajax({
@@ -90,7 +96,9 @@ function startTimer() {
                     console.log('updateValue : ' + document.getElementById('updateValue').value);
                     $('#topTenForm').modal('show');
                 }
-                document.getElementById('result').innerHTML = "Congrats !!! <br><br> You scored : " + score + " wpm";
+                document.getElementById('result').innerHTML = "Congrats !!! <br><br> You scored : " + score;
+                document.getElementById("scorePanel").style = "display :block;";
+                document.getElementById("scorePanel").scrollIntoView();
                 resetTimer();
                 score = 0;
                 time = 0;

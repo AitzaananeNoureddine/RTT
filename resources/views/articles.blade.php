@@ -4,7 +4,9 @@
         <div class="grid">
             @foreach ($articles as $item)
                 <div class="article">
-                    <img src="/assets/images/tttabout_img.jpg" width="100%" height="100%" id="bg_image">
+                    {{-- <p>{{ public_path().'/assets/images/'.$item->Img }}</p> --}}
+                    {{-- "{{ public_path().'/assets/images/'.$item->Img }}" --}}
+                    <img src="/assets/images/{{ $item->Img }}" width="100%" height="100%" id="bg_image">
                     <h4 id="article_name">{{$item->Title}}</h4>
                     <p style="display: none">{{ $item->Id }}</p>
                 </div>

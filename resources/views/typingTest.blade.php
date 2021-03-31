@@ -1,8 +1,6 @@
-@if(!Request::ajax())
-    @extends('partial/master')
-@endif
+@extends('partial/master')
 @section('content')
-    <div class="content" style="background-color: #CFC9C9;text-align: center;padding-top: 7%">
+    <div class="content" style="background-color: #CFC9C9;text-align: center;padding: 7% 2% 150px 2% !important;">
         <h2 style="color: #230052;font-family: 'Josefin Sans', sans-serif;">{{ $article->Title == '' ? "Random typing test":$article->Title }}</h2><br>
         <div contenteditable="false" id="randomTxt" class="form-control">{{ $article->Content }}</div>
         <textarea name="" id="typingArea" rows="1" class="form-control" style="resize: none;" onfocus="this.value = ''" onkeypress="start(event);">start typing...</textarea>
@@ -38,10 +36,10 @@
         </div>
         <br><hr style="background-color: #290628;height: 1px">
         <div class="buttonNfield">
-            <a href="" onclick="return false" class="btnCustom button" data-front="New post"></a>
+            <a href="" onclick="return false" class="btnCustom button" data-front="Post"></a>
             <div class="form">
                 <input type="text" placeholder="write a new post or reply here..." class="form-control" id="postContent">
-                <input type="submit" value="Submit" class="btn btn-light" onclick="Post({{ $article->Id }});">
+                <input type="submit" value="Submit" class="btn btn-light" style="width: max-content !important;height: max-content !important;" onclick="Post({{ $article->Id }});">
             </div>
         </div>
         {{-- username modal --}}

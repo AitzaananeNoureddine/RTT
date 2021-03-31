@@ -19,6 +19,7 @@ class CreateArticlesTable extends Migration
             $table->integer('Category')->unsigned();
             $table->foreign('Category')->references('Id')->on('categories')->onDelete('cascade');
             $table->string('Content');
+            $table->string('Img');
             $table->timestamps();
         });
     }

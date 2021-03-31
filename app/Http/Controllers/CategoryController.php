@@ -8,9 +8,9 @@ use App\Models\Article;
 
 class CategoryController extends Controller
 {
-    public function index($id){
+    public function index($id,$name){
 
         $articles=Article::where('Category','=',$id)->get();
-        return view('articles')->with('articles',$articles);
+        return view('articles',['articles'=>$articles, 'category'=>$name]);
     }
 }

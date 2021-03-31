@@ -22,7 +22,7 @@ Route::get('about',function(){ return view('about'); });
 
 Route::get('top10','App\Http\Controllers\ScoreController@index');
 
-Route::get('categories/{id}','App\Http\Controllers\CategoryController@index')->name('categories');
+Route::get('categories/{id}/{name}','App\Http\Controllers\CategoryController@index')->name('categories');
 
 // Route::prefix('categories')->group(function () {
 //     Route::get('/{id}','App\Http\Controllers\CategoryController@index')->name('categories');

@@ -1,3 +1,19 @@
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+ ::-webkit-scrollbar-track {
+    background: grey;
+}
+
+ ::-webkit-scrollbar-thumb {
+    background: #240046;
+}
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #973aa8;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -119,7 +135,11 @@ body {
 /* navbar submenu */
 
 .sub-menu::-webkit-scrollbar {
-    width: 0 !important;
+    width: 3px !important;
+}
+
+.sub-menu::-webkit-scrollbar-thumb {
+    background: #240046;
 }
 
 #cat {
@@ -137,7 +157,7 @@ body {
     position: absolute;
     width: max-content;
     background-color: #666;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-top: 40px;
     margin-left: 20px;
 }
@@ -199,7 +219,7 @@ body {
     overflow: visible;
     left: 0px;
     right: 0px;
-    padding: 10%;
+    padding: 10% !important;
     background-color: #d6d6d6;
 }
 
@@ -527,7 +547,7 @@ footer {
     }
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 800px) and (min-width: 450px) {
     #section1>img {
         display: none;
     }
@@ -539,7 +559,26 @@ footer {
         width: auto;
     }
     .content {
-        padding-top: 250px !important;
+        padding-top: 120px !important;
+    }
+    .winner>h2 {
+        overflow: visible;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #section1>img {
+        display: none;
+    }
+    .user {
+        border: none;
+        background: transparent;
+        overflow: visible;
+        text-align: center;
+        width: auto;
+    }
+    .content {
+        padding-top: 200px !important;
     }
     .winner>h2 {
         overflow: scroll;
@@ -571,6 +610,8 @@ footer {
     position: absolute;
     top: 50%;
     left: 50%;
+    width: 90% !important;
+    text-align: center;
     font-size: x-large;
     transform: translate(-50%, -50%);
     color: #ea7af4;
@@ -660,7 +701,7 @@ footer {
 }
 
 #randomTxt::-webkit-scrollbar {
-    width: 0;
+    width: 3px;
 }
 
 #randomTxt {
@@ -728,7 +769,7 @@ footer {
 }
 
 .buttonNfield .form input[type='submit'] {
-    width: 8%;
+    width: 9% !important;
     height: 100%;
 }
 

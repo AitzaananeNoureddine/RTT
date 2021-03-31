@@ -9,6 +9,7 @@
     display: inline-block;
     text-decoration: none;
     font-family: "Open Sans";
+    width: max-content !important;
 }
 
 .btnCustom:hover:after {

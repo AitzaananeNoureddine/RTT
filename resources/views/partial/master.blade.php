@@ -37,7 +37,7 @@
                 <div class="sub-menu">
                     <ul>
                         @foreach ($categories as $item)
-                            <li><a href="/categories/{{$item->Id}}">{!! $item->Name !!}</a></li>
+                            <li><a href="/categories/{{$item->Id}}/{{$item->Name}}">{!! $item->Name !!}</a></li>
                         @endforeach
                     </ul>
                 </div>
