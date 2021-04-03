@@ -15,7 +15,7 @@
             <img src="assets/images/ic_medal.png" class="ic_medal">
             @for ($i = 1; $i < count($scores); $i++)
                 <div class="user">
-                    <h3 style="color: #ee3e54">{{$scores[$i]->Username}}</h3>
+                    <h3 style="color: #240046;font-family: 'Righteous', cursive;"><small>{{$scores[$i]->Username}}</small></h3>
                     <h5 style="color: #e0a825">{{$scores[$i]->Value}} wpm</h5>
                 </div>
             @endfor

@@ -10,7 +10,6 @@
 @endphp
 @foreach ($replies as $reply)
 <div class="msgContainer">
-    <div id="replyNote">Click to submit reply</div>
     <div class="reply">
         <div style="font-family: 'Caveat', cursive;">{{ $reply->created_at }}</div>{{ $reply->Content }}
     </div>

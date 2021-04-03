@@ -32,12 +32,29 @@ var started = false;
 var time = 0;
 var timer;
 var i = 0;
-if (document.getElementById('randomTxt') != null) {
+var k = 0;
+var l = 0;
+var randomTxt = document.getElementById('randomTxt');
+if (randomTxt != null) {
     var _random_words = document.getElementById('randomTxt').textContent.trim();
     var _random_words = _random_words.split(' ');
+    var randomTxtHeight = randomTxt.offsetHeight;
+    var randomTxtWidth = randomTxt.offsetWidth;
+    var lineHeight = document.defaultView.getComputedStyle(randomTxt, null).getPropertyValue("line-height").split("px");
+    lineHeight = parseInt(lineHeight[0]);
+    var lines = Math.round(randomTxtHeight / lineHeight);
+    randomTxt.style.height = "26rem";
+    let limit = Math.floor((randomTxtWidth - 280) / wordWidth("A", "font-family: 'Space Mono', monospace"));
+    let reg = new RegExp(".{1," + limit + "}", "g");
+    let linesContent = randomTxt.innerHTML.match(reg);
+    var LineWords = {};
+    for (let j = 0; j < linesContent.length; j++) {
+        LineWords[j] = linesContent[j].split(' ').length;
+    }
 }
 var score = 0;
 var random_words;
+var wordCount;
 
 function start(event) {
     document.getElementById("scorePanel").style = "display :none;";
@@ -45,9 +62,8 @@ function start(event) {
     if (event.keyCode == 32 && i < random_words.length && started) {
         if (random_words[i].length != 0) {
             if (document.getElementById('typingArea').value.trim().localeCompare(random_words[i].trim()) == 0) {
-                console.log(++score);
-                console.log('word : ' + random_words[i].length);
-                // score++;
+                // console.log(++score);
+                score++;
                 let word = " <span style='color: #38b000;border-radius: 2px'>" + random_words[i] + "</span> ";
                 random_words.splice(i, 1, word);
             } else {
@@ -56,6 +72,14 @@ function start(event) {
             }
         }
         document.getElementById('typingArea').value = "";
+        if (k == wordCount - 1) {
+            k = 0;
+            l++;
+            wordCount = LineWords[l];
+            randomTxt.scrollBy(0, lineHeight); //// scroll end of line
+        } else {
+            k++;
+        }
         i++;
         if (random_words[i] != undefined) {
             let word = " <span style='background-color: #FF859B;border-radius: 2px'>" + random_words[i] + "</span> ";
@@ -70,6 +94,7 @@ function start(event) {
         var word = " <span style='background-color: #FF859B;border-radius: 2px'>" + random_words[0] + "</span> "; /// highlighting the first word
         random_words.splice(0, 1, word);
         document.getElementById('randomTxt').innerHTML = random_words.join(' ');
+        wordCount = LineWords[l];
     }
     if (!started && event.keyCode == 32) {
         document.getElementById('typingArea').value = '';
@@ -98,6 +123,7 @@ function startTimer() {
                 }
                 document.getElementById('result').innerHTML = "Congrats !!! <br><br> You scored : " + score;
                 document.getElementById("scorePanel").style = "display :block;";
+                randomTxt.scrollTo(0, 0);
                 document.getElementById("scorePanel").scrollIntoView();
                 resetTimer();
                 score = 0;
@@ -190,4 +216,11 @@ function reply(postId, articleId) {
             }
         });
     }
+}
+////////////////////////
+function wordWidth(word, font) {
+    let ruler = document.getElementById("ruler");
+    ruler.style.fontFamily = font;
+    ruler.innerHTML = word;
+    return ruler.offsetWidth;
 }

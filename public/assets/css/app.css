@@ -465,8 +465,9 @@ footer {
 }
 
 .winner>h2 {
-    color: #6200b3;
-    font-size: 600%;
+    color: #240046;
+    font-size: 500%;
+    font-family: 'Righteous', cursive;
 }
 
 .winner>h2,
@@ -709,7 +710,9 @@ footer {
     font-size: larger;
     font-weight: 500;
     line-height: 2;
-    height: 26rem;
+    height: max-content;
+    padding: 0%;
+    /* height: 26rem; */
     margin-bottom: 5px;
     overflow-y: scroll;
     background-color: #ECEAEA;
@@ -813,7 +816,6 @@ footer {
     position: relative;
 }
 
-.msgContainer:hover .reply,
 .msgContainer:hover .post {
     cursor: pointer;
     filter: brightness(50%);

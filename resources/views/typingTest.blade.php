@@ -5,6 +5,7 @@
         <div contenteditable="false" id="randomTxt" class="form-control">{{ $article->Content }}</div>
         <textarea name="" id="typingArea" rows="1" class="form-control" style="resize: none;" onfocus="this.value = ''" onkeypress="start(event);">start typing...</textarea>
         <button class="resetB" onclick="retryRandom()"><strong>Reset</strong></button>
+        <span id="ruler" style="visibility: hidden;white-space: nowrap;"></span>
         <button class="timeB" onclick="PauseContinue()">0 (s)</button><br><br><br><br><br>
         <div id="scorePanel">
             <img src="assets/images/score_img.png" width="20%">
@@ -26,7 +27,6 @@
             @endphp
             @foreach ($replies as $reply)
             <div class="msgContainer">
-                <div id="replyNote">Click to submit reply</div>
                 <div class="reply">
                     <div style="font-family: 'Caveat', cursive;">{{ $reply->created_at }}</div>{{ $reply->Content }}
                 </div>
