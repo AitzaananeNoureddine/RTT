@@ -1,6 +1,5 @@
 @extends('partial/master')
 @section('content')
-
     <div class="content" style="background-color: #CFC9C9;font-family: 'Coda Caption', sans-serif;padding-top: 10%">
         <h3 style="color:#362B64">About us</h3>
         <hr style="background-color: #290628;height: 1px"><br>
@@ -33,10 +32,10 @@
         </div>
         <br>
         <hr class="styled_hr">
-        <h5 style="position: absolute;left: 50%;transform: translateX(-50%);color: #1F183F;font-family: 'Quicksand', sans-serif;font-size:x-large;">Creators</h5>
+        <h5 style="position: absolute;left: 50%;transform: translateX(-50%);color: #1F183F;font-family: 'Quicksand', sans-serif;font-size:x-large;">Creators</h5><br>
         <div class="about_container cr_container" style="justify-content: space-evenly;padding-top: 50px">
             <div class="creator cr1" data-aos="fade-up" data-aos-duration="1000">
-                <img src="assets/images/creator_img1.jpg" width="40%" height="50%">
+                <img src="assets/images/creator_img1.jpg" width="35%" height="50%">
                 <a href="https://www.linkedin.com/in/noureddine-aitzaanane-127394140/" target="_blank"><h6>
                     Noureddine Aitzaanane
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
@@ -46,7 +45,7 @@
                 <p>second year computer science engineering student</p>
             </div>
             <div class="creator cr2" data-aos="fade-up" data-aos-duration="1000">
-                <img src="assets/images/creator_img2.jpg" width="40%" height="50%">
+                <img src="assets/images/creator_img2.jpg" width="35%" height="50%">
                 <a href="https://www.linkedin.com/" target="_blank"><h6>
                     Mohammad Akraou
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
@@ -73,5 +72,4 @@
             </div>
         </div>
     </div>
-
 @endsection

@@ -34,22 +34,28 @@ var timer;
 var i = 0;
 var k = 0;
 var l = 0;
+var j = 0;
 var randomTxt = document.getElementById('randomTxt');
 if (randomTxt != null) {
     var _random_words = document.getElementById('randomTxt').textContent.trim();
     var _random_words = _random_words.split(' ');
+    for (j = 0; j < _random_words.length; j++) {
+        if (_random_words[j].length == 0) _random_words.splice(j, 1);
+    }
     var randomTxtHeight = randomTxt.offsetHeight;
     var randomTxtWidth = randomTxt.offsetWidth;
     var lineHeight = document.defaultView.getComputedStyle(randomTxt, null).getPropertyValue("line-height").split("px");
     lineHeight = parseInt(lineHeight[0]);
     var lines = Math.round(randomTxtHeight / lineHeight);
-    randomTxt.style.height = "26rem";
+    randomTxt.style.height = "20rem";
     let limit = Math.floor((randomTxtWidth - 280) / wordWidth("A", "font-family: 'Space Mono', monospace"));
     let reg = new RegExp(".{1," + limit + "}", "g");
     let linesContent = randomTxt.innerHTML.match(reg);
     var LineWords = {};
-    for (let j = 0; j < linesContent.length; j++) {
-        LineWords[j] = linesContent[j].split(' ').length;
+    if (linesContent != null) {
+        for (j = 0; j < linesContent.length; j++) {
+            LineWords[j] = linesContent[j].split(' ').length;
+        }
     }
 }
 var score = 0;
@@ -119,7 +125,8 @@ function startTimer() {
                     document.getElementById('hiddenScore').value = score;
                     document.getElementById('updateValue').value = data.updateValue;
                     console.log('updateValue : ' + document.getElementById('updateValue').value);
-                    $('#topTenForm').modal('show');
+                    let topTenForm = $('#topTenForm');
+                    topTenForm.modal('show');
                 }
                 document.getElementById('result').innerHTML = "Congrats !!! <br><br> You scored : " + score;
                 document.getElementById("scorePanel").style = "display :block;";

@@ -214,12 +214,12 @@ body {
     position: absolute;
     top: 0px;
     width: 100% !important;
-    height: max-content;
+    height: max-content !important;
     min-height: 100%;
     overflow: visible;
     left: 0px;
     right: 0px;
-    padding: 10% !important;
+    padding: 10% 10% 10rem 10% !important;
     background-color: #d6d6d6;
 }
 
@@ -358,10 +358,12 @@ footer {
 .creator {
     width: 25%;
     margin: 20px;
-    background-color: rgb(86, 79, 56, 0.1);
+    background-color: rgb(86, 79, 56, 0.1) !important;
     border-radius: 100px;
     padding: 10px;
-    background-image: url('../images/photo_bg.jpg') !important;
+    /* background-image: url('../images/photo_bg.jpg') !important; */
+    background: -webkit-linear-gradient(to left, #4e4376, #2b5876);
+    background: linear-gradient(to left, #4e4376, #2b5876);
     background-size: 100% 42% !important;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -375,9 +377,9 @@ footer {
 }
 
 .creator>img {
+    background-size: contain;
     border-radius: 50%;
     filter: brightness(85%);
-    margin-bottom: 15px;
 }
 
 .creators_alt {
@@ -424,9 +426,8 @@ footer {
         display: block !important;
     }
     .creator {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-57%) !important;
+        margin: 0 auto;
+        margin-bottom: 20px;
     }
     .cr1 {
         top: 100%;
@@ -470,9 +471,15 @@ footer {
     font-family: 'Righteous', cursive;
 }
 
+.winner>h2::-webkit-scrollbar,
+.winner>h3::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
 .winner>h2,
 .winner>h3 {
-    overflow: hidden;
+    overflow: scroll !important;
     white-space: nowrap;
     animation: typing 3.5s;
 }
@@ -499,12 +506,12 @@ footer {
 }
 
 .arrowUP {
-    float: right;
-    margin-top: -5%;
-    margin-right: 5%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.arrowUP:hover {
+.arrowUP:hover>img {
     transform: scale(1.2) !important;
 }
 
@@ -521,6 +528,7 @@ footer {
 
 .user {
     border: solid 0.9px #9b59b6;
+    background-size: contain;
     background-color: #edf2f4;
     border-radius: 50px;
     width: 36%;
@@ -553,8 +561,6 @@ footer {
         display: none;
     }
     .user {
-        border: none;
-        background: transparent;
         overflow: visible;
         text-align: center;
         width: auto;
@@ -572,8 +578,6 @@ footer {
         display: none;
     }
     .user {
-        border: none;
-        background: transparent;
         overflow: visible;
         text-align: center;
         width: auto;
@@ -742,7 +746,9 @@ footer {
 
 .modal-content {
     border-radius: 30px !important;
-    background-image: linear-gradient(white, #CFC9C9) !important;
+    background: #D3CCE3;
+    background: -webkit-linear-gradient(to bottom, #E9E4F0, #D3CCE3);
+    background: linear-gradient(to bottom, #E9E4F0, #D3CCE3);
 }
 
 .modal-footer {

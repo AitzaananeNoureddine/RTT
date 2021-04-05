@@ -19,7 +19,7 @@
                     <h5 style="color: #e0a825">{{$scores[$i]->Value}} wpm</h5>
                 </div>
             @endfor
-        </div>
-        <a href="#section1"><img src="assets/images/ic_scroll_up.png" width="40px" height="40px" class="arrowUP" data-aos="flip-left" data-aos-duration="2000"></a>
+        </div><br>
+        <a href="#section1" class="arrowUP"><img src="assets/images/ic_scroll_up.png" width="30px" height="30px" data-aos="flip-left" data-aos-duration="2000"></a>
     </div>
 @endsection
