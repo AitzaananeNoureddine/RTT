@@ -2,7 +2,11 @@
 <div class="msgContainer">
     <div id="replyNote">Click to submit reply</div>
     <div class="post" onclick="reply({{ $post->Id }},{{ $articleId }})">
-        <div style="font-family: 'Caveat', cursive;">{{ $post->created_at }}</div>{{ $post->Content }}
+        <div style="font-family: 'Caveat', cursive;">
+            @php
+                App\Http\Controllers\PostController::timeAgo($post->created_at);
+            @endphp
+        </div>{{ $post->Content }}
     </div>
 </div>
 @php
@@ -11,7 +15,11 @@
 @foreach ($replies as $reply)
 <div class="msgContainer">
     <div class="reply">
-        <div style="font-family: 'Caveat', cursive;">{{ $reply->created_at }}</div>{{ $reply->Content }}
+        <div style="font-family: 'Caveat', cursive;">
+            @php
+                App\Http\Controllers\PostController::timeAgo($reply->created_at);
+            @endphp
+        </div>{{ $reply->Content }}
     </div>
 </div>
 @endforeach

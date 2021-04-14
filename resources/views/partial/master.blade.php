@@ -20,6 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet"> 
    
     <title>Read through typing</title>
 </head>

@@ -3,15 +3,13 @@
 }
 
  ::-webkit-scrollbar-track {
-    background: grey;
+    background: #7A7A7A;
 }
 
  ::-webkit-scrollbar-thumb {
-    background: #240046;
-}
-
- ::-webkit-scrollbar-thumb:hover {
-    background: #973aa8;
+    margin: 2px !important;
+    background: #10002B;
+    border-radius: 100px 0 0 100px !important;
 }
 
 html {
@@ -333,17 +331,17 @@ footer {
 }
 
 .about_container>p {
-    margin: 15px;
+    margin: 0 auto;
     text-align: center;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateY(-50%) !important;
     color: #5D49AB;
-    font-family: 'Noto Sans', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 95%;
     font-weight: 500;
-    line-height: 2;
+    line-height: 3;
 }
 
 .alt_paragraph {
@@ -370,10 +368,13 @@ footer {
     text-align: center;
 }
 
+.creator>img {
+    transition: 1s;
+}
+
 .creator:hover>img {
     border: white 1px;
     filter: brightness(100%);
-    transition: 0.8s;
 }
 
 .creator>img {
@@ -744,7 +745,7 @@ footer {
     font-family: 'Josefin Sans', sans-serif;
 }
 
-.modal-content {
+.mod-content {
     border-radius: 30px !important;
     background: #D3CCE3;
     background: -webkit-linear-gradient(to bottom, #E9E4F0, #D3CCE3);
@@ -793,6 +794,36 @@ footer {
 .showAddPost {
     width: 100% !important;
     opacity: 1 !important;
+}
+
+.reading-content {
+    max-height: 90vh !important;
+    font-size: larger !important;
+    background-color: #D0D6DC !important;
+    color: black !important;
+    border-top: black !important;
+    text-align: left !important;
+}
+
+.reading-body {
+    overflow-y: scroll !important;
+}
+
+.reading-img {
+    float: left;
+    margin: 0 3% 3% 0;
+    border-radius: 10px;
+}
+
+.reading-dialog {
+    min-width: 95% !important;
+    max-height: 300px !important;
+}
+
+.readB {
+    border: none !important;
+    background-color: #10002B !important;
+    padding: 0 5px 0 5px !important;
 }
 
 
