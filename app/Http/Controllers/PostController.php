@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewPost;
 use App\Models\Article;
 use App\Models\Post;
 use App\Models\Reply;
@@ -17,6 +18,7 @@ class PostController extends Controller
         $post->save();
         $posts = Post::where('Article',$request->Article)->get();
         $html = view('partial.discussion',['posts'=>$posts, 'articleId'=>$request->Article])->render();
+        event(new NewPost($html));
         return response()->json(array('html'=>$html));
     }
 
@@ -27,6 +29,7 @@ class PostController extends Controller
         $reply->save();
         $posts = Post::where('Article',$request->Article)->get();
         $html = view('partial.discussion',['posts'=>$posts, 'articleId'=>$request->Article])->render();
+        event(new NewPost($html));
         return response()->json(array('html'=>$html));
     }
 

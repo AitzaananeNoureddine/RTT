@@ -1,2 +1,1 @@
-// require('./bootstrap');
-require('calculate-size');
+require('./bootstrap');

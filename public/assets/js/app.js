@@ -231,3 +231,9 @@ function wordWidth(word, font) {
     ruler.innerHTML = word;
     return ruler.offsetWidth;
 }
+///////////////////////
+Echo.channel('posting')
+    .listen('NewPost', (e) => {
+        console.log("new post created");
+        $('.discussion').html(e.msg);
+    });

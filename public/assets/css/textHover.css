@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+}
+
+.headingOuter:first-child {
+    margin-top: 0;
+}
+
+h1+.headingOuter {
+    margin-top: 10px;
+}
+
+.headingWrapper {
+    text-align: center;
+    background-color: transparent;
+    padding: 10px;
+}
+
+.header {
+    display: inline-block;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    text-decoration: none;
+    text-shadow: 1.5px 1.5px 0 none, -1.5px -1.5px 0, -1.5px -1.5px 0, -1.5px 1.5px 0, 1.5px -1.5px 0;
+    transition: all 400ms ease-in-out;
+}
+
+.header--raiseUp:hover {
+    transform: translate(-9px, -9px);
+    text-shadow: 1.5px 1.5px 0 black, 0px 1.5px 0 black, -1.5px -1.5px 0 black, -1.5px -1.5px 0 black, -1.5px 1.5px 0 black, 1.5px -1.5px 0 black, 0.7778174593px 0.7778174593px 0 #aaaaaa, 1.5556349186px 1.5556349186px 0 #aaaaaa, 2.3334523779px 2.3334523779px 0 #aaaaaa, 3.1112698372px 3.1112698372px 0 #aaaaaa, 3.8890872965px 3.8890872965px 0 #aaaaaa, 4.6669047558px 4.6669047558px 0 #aaaaaa, 5.4447222151px 5.4447222151px 0 #aaaaaa, 6.2225396744px 6.2225396744px 0 #aaaaaa, 7.0003571337px 7.0003571337px 0 #aaaaaa, 7.7781745931px 7.7781745931px 0 #aaaaaa;
+}
+
+.header--shadow:hover {
+    transform: translate(5px, 0);
+}
+
+.header--shadow.header--raiseUp:hover {
+    transform: translate(-5px, 0);
+}

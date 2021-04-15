@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/assets/css/app.css">
     <link rel="stylesheet" href="/assets/css/button.css">
     <link rel="stylesheet" href="/assets/css/button2.css">
+    <link rel="stylesheet" href="/assets/css/textHover.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
@@ -26,8 +27,7 @@
 </head>
 <body>
     <div class="navbar">
-        {{-- <img src="/assets/images/Logo.png"> --}}
-        <h3><a href="/"><strong class="cap">R</strong>ead<strong class="cap">T</strong>hrough<strong class="cap">T</strong>yping</a></h3>
+        <h3 class="headingWrapper"><a href="/" class="header header--raiseUp header--shadow"><strong class="cap">R</strong>ead<strong class="cap">T</strong>hrough<strong class="cap">T</strong>yping</a></h3>
         <div class="links">
             <a href="/">Home</a>
             <div id="cat" style="margin: 0%;width: fit-content;display: flex;justify-content: space-between;flex-wrap: wrap;">
@@ -61,6 +61,7 @@
         </div>
     </footer>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="/js/app.js"></script>
     <script src="/assets/js/app.js"></script>
     <script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

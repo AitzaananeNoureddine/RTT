@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\NewPost;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
