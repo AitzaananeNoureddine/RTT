@@ -4,6 +4,14 @@ $(document).ready(function() {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
+    $("#postContent").emojioneArea({
+        filtersPosition: "bottom",
+        events: {
+            keydown: function(editor, event) {
+                if (event.keyCode == 13) Post($('#articleId').val());
+            }
+        }
+    });
 });
 /////////// articles hover effect ///////////////
 let articles = document.querySelectorAll('.article');
@@ -37,7 +45,7 @@ var l = 0;
 var j = 0;
 var randomTxt = document.getElementById('randomTxt');
 if (randomTxt != null) {
-    var _random_words = document.getElementById('randomTxt').textContent.trim();
+    var _random_words = randomTxt.textContent.trim();
     var _random_words = _random_words.split(' ');
     for (j = 0; j < _random_words.length; j++) {
         if (_random_words[j].length == 0) _random_words.splice(j, 1);
@@ -191,29 +199,29 @@ function submitForm() {
 }
 /////////// evaluation process ////////////////
 
-/////////// post form slider ////////////////
-$(".buttonNfield a").click(function() {
-    $(".buttonNfield .form").toggleClass('showAddPost');
-
-});
-/////////// post form slider ////////////////
+////////// post ///////////
 function Post(articleId) {
-    let postContent = $("#postContent").val();
-    $("#postContent").val('');
-    $.ajax({
-        url: "/NewPost",
-        type: "POST",
-        data: { Article: articleId, Content: postContent },
-        success: function(data) {
-            $('.discussion').html(data.html);
-        }
-    });
+    $(".emojionearea-editor").children().attr('src', '');
+    let postContent = $(".emojionearea-editor").html();
+    if (postContent != '') {
+        postContent = HTMLTOTEXT.htmlToText(postContent);
+        $.ajax({
+            url: "/NewPost",
+            type: "POST",
+            data: { Article: articleId, Content: postContent },
+            success: function(data) {
+                $('.discussion').html(data.html);
+            }
+        });
+        $(".emojionearea-editor").html('');
+    }
 }
 ////// post reply /////
 function reply(postId, articleId) {
-    let replyContent = $("#postContent").val();
+    $(".emojionearea-editor").children().attr('src', '');
+    let replyContent = $(".emojionearea-editor").html();
     if (replyContent != '') {
-        $("#postContent").val('');
+        replyContent = HTMLTOTEXT.htmlToText(replyContent);
         $.ajax({
             url: "/reply",
             type: "POST",
@@ -222,6 +230,7 @@ function reply(postId, articleId) {
                 $('.discussion').html(data.html);
             }
         });
+        $(".emojionearea-editor").html('');
     }
 }
 ////////////////////////
@@ -234,6 +243,6 @@ function wordWidth(word, font) {
 ///////////////////////
 Echo.channel('posting')
     .listen('NewPost', (e) => {
-        console.log("new post created");
         $('.discussion').html(e.msg);
     });
+///////////////////////

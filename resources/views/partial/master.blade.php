@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/assets/css/button2.css">
     <link rel="stylesheet" href="/assets/css/textHover.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -21,8 +22,8 @@
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Indie+Flower&family=Shadows+Into+Light&display=swap" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet"> 
-   
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/emojionearea.min.css">
     <title>Read through typing</title>
 </head>
 <body>
@@ -68,7 +69,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script> AOS.init(); </script>
-    
+    <script type="text/javascript" src="/assets/js/emojionearea.min.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>

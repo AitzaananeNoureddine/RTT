@@ -1,6 +1,6 @@
 @extends('partial/master')
 @section('content')
-    <div class="content content2" style="background-color: #CFC9C9;text-align: center;padding: 10rem 2% 150px 2% !important;">
+    <div class="content content2" style="background-color: #CFC9C9;text-align: center;padding: 11rem 2% 150px 2% !important;">
         <h2 style="color: #230052;font-family: 'Josefin Sans', sans-serif;display: inline;">{{ $article->Title == '' ? "Random typing test":$article->Title }}
         <!-- read button -->
         <button type="button" class="btn btn-primary readB" data-toggle="modal" data-target="#readingModal">
@@ -28,7 +28,7 @@
         </div>
         <!-- reading modal -->
         <div contenteditable="false" id="randomTxt" class="form-control">{{ $article->Content }}</div>
-        <textarea name="" id="typingArea" rows="1" class="form-control" style="resize: none;" onfocus="this.value = ''" onkeypress="start(event);">start typing...</textarea>
+        <textarea id="typingArea" rows="1" class="form-control" style="resize: none;" onfocus="this.value = ''" onkeypress="start(event);">start typing...</textarea>
         <button class="resetB" onclick="retryRandom()"><strong>Reset</strong></button>
         <span id="ruler" style="visibility: hidden;white-space: nowrap;"></span>
         <button class="timeB" onclick="PauseContinue()">0 (s)</button><br><br><br><br><br>
@@ -68,12 +68,10 @@
             @endforeach
         </div>
         <br><hr style="background-color: #290628;height: 1px">
-        <div class="buttonNfield">
-            <a href="" onclick="return false" class="btnCustom button" data-front="Post"></a>
-            <div class="form">
-                <input type="text" placeholder="write a new post or reply here..." class="form-control" id="postContent">
-                <input type="submit" value="Submit" class="btn btn-light" style="width: max-content !important;height: max-content !important;" onclick="Post({{ $article->Id }});">
-            </div>
+        <div class="form">
+            <input type="hidden" value="{{ $article->Id }}" id="articleId">
+            <input type="text" placeholder="write a new post or reply here..." class="form-control" id="postContent" data-emoji-picker="true">
+            <i class="fas fa-paper-plane submitPost" onclick="Post({{ $article->Id }});"></i>
         </div>
         {{-- username modal --}}
         <div class="modal animate__animated animate__jackInTheBox" id="topTenForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

@@ -224,6 +224,7 @@ body {
 .left {
     float: left;
     padding-top: 7%;
+    width: 50%;
 }
 
 .content>h1 {
@@ -258,12 +259,13 @@ body {
     float: right;
     margin-right: 0px !important;
     padding-right: 0px !important;
+    width: 50%;
 }
 
 .right>img {
     margin-right: -60px;
     margin-top: 60px;
-    width: 600px;
+    width: 100%;
 }
 
 
@@ -637,8 +639,20 @@ footer {
         filter: brightness(40%);
     }
     .article>h4 {
-        color: #dd0426;
+        color: white;
         display: block;
+    }
+}
+
+@media only screen and (max-width: 1240px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -757,43 +771,24 @@ footer {
     text-align: center;
 }
 
-
-/* post input slider style */
-
-.buttonNfield {
-    display: flex;
-    width: 100%;
+.form {
+    display: flex !important;
+    justify-content: space-between;
+    position: relative;
 }
 
-.buttonNfield a {
-    width: 9%;
-    margin: 0 2px 0 0;
+.submitPost {
+    position: absolute;
+    left: 15px;
+    opacity: 0.7;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.submitPost:hover {
+    opacity: 1;
+    transition: 1s;
     cursor: pointer;
-    text-align: center !important;
-    text-decoration: none !important;
-}
-
-.buttonNfield .form input[type='text'] {
-    width: 90%;
-    display: inline;
-}
-
-.buttonNfield .form input[type='submit'] {
-    width: 9% !important;
-    height: 100%;
-}
-
-.buttonNfield .form {
-    width: 0%;
-    overflow: hidden;
-    margin: 0;
-    transition: width 0s ease;
-    opacity: 0;
-}
-
-.showAddPost {
-    width: 100% !important;
-    opacity: 1 !important;
 }
 
 .reading-content {
